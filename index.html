@@ -1,0 +1,158 @@
+<html>
+  <head>
+    <title> Public FullName-FullAddress Support Campaign </title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> </link>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <script>
+      function clearData()
+      {
+        document.getElementById("tName").value = "";
+        document.getElementById("tAddress").value = "";
+        document.getElementById("tState").value = "";
+        document.getElementById("tDistrict").value = "";
+        document.getElementById("tPincode").value = "";
+        document.getElementById("tEmail").value = "";
+        document.getElementById("tVoter").value = "";
+        document.getElementById("tComment").value = "";
+        document.getElementById("tResult").value = "";
+        document.getElementById("btnCopy").value = "";
+        document.getElementById("tResult").style.display="none";
+        document.getElementById("btnCopy").style.display="none";
+      }
+
+      function copyText() 
+      {
+        var temp = document.createElement("textarea");
+        temp.value = document.getElementById('tResult').value.trim();
+        document.body.appendChild(temp);
+        temp.select();
+        document.execCommand("copy");
+        document.body.removeChild(temp);
+
+        lbl.innerHTML = "Content is copied to clipboard. Paste it in your SMS app and send it to an activist.";
+        alert("Content is copied to clipboard. Paste it in your SMS app and send it to an activist.");
+      }
+
+      function showData() {
+        var name = document.getElementById("tName").value.trim();
+        var address = document.getElementById("tAddress").value.trim();
+        var state = document.getElementById("tState").value.trim();
+        var district = document.getElementById("tDistrict").value.trim();
+        var pincode = document.getElementById("tPincode").value.trim();
+        var email = document.getElementById("tEmail").value.trim();
+        var voter = document.getElementById("tVoter").value.trim();
+        var comment = document.getElementById("tComment").value.trim();
+        var btnCopy = document.getElementById("btnCopy");
+        var tResult = document.getElementById("tResult");
+
+        if(name.length < 5)
+        {
+          alert("Please Enter Full Name");
+        }
+        else
+        {
+          if(address.length < 5)
+          {
+            alert("Please Enter Full Address");
+          }
+          else
+          {
+            if(state.length == 0)
+            {
+              alert("Please Enter name of State");
+            }
+            else
+            {
+              if(district.length == 0)
+              {
+                alert("Please Enter name of District or City");
+              }
+              else
+              {
+                btnCopy.style.display = "block";
+                tResult.style.display = "block";
+
+                var result = "Publicly display my support for #EndCovidVaccineLockdown | " + name + " | " + address + " | " + state + " | " + district + " | " + pincode + " | " + email + " | " + voter + " | " + comment;
+                document.getElementById("tResult").innerHTML = result;
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <center>
+<div id="root" class="w3-container" width="100%">
+    <h3 class="w3-container w3-blue"> Public FullName-FullAddress Support Campaign Against Lockdown, Mandatory Vaccine </h3> 
+
+ <font> Please fill the following form to support <b style="color:red">#EndCovidVaccineLockdown</b> </font>
+      <br>
+      <br>
+      <table class="w3-card w3-padding" cellpadding="2">
+        <tr>
+          <td align="right"> Full Name <b style="color:red">*</b> </td>
+          <td>
+            <input type="text" id="tName" class="w3-input w3-border w3-round-large" required></input>
+
+          </td>
+        </tr>
+        <tr>
+          <td align="right"> Full Address <b style="color:red">*</b></td>
+          <td>
+            <textarea id="tAddress" class="w3-input w3-border w3-round-large" required></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td align="right"> State <b style="color:red">*</b></td>
+          <td>
+            <input type="text" id="tState" class="w3-input w3-border w3-round-large" required></input>
+          </td>
+        </tr>
+        <tr>
+          <td align="right"> District/City <b style="color:red">*</b></td>
+          <td>
+            <input type="text" id="tDistrict" class="w3-input w3-border w3-round-large" required></input>
+          </td>
+        </tr>
+        <tr>
+          <td align="right"> Pincode </td>
+          <td>
+            <input type="text" id="tPincode" class="w3-input w3-border w3-round-large" required></input>
+          </td>
+        </tr>
+        <tr>
+          <td align="right"> Email ID </td>
+          <td>
+            <input type="text" id="tEmail" class="w3-input w3-border w3-round-large"></input>
+          </td>
+        </tr>
+        <tr>
+          <td align="right"> Voter ID </td>
+          <td>
+            <input type="text" id="tVoter" class="w3-input w3-border w3-round-large"></input>
+          </td>
+        </tr>
+        <tr>
+          <td align="right"> Comment </td>
+          <td>
+            <textarea id="tComment" class="w3-input w3-border w3-round-large"></textarea>
+            </input>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td colspan="2">
+            <input type="reset" value="CLEAR" class="w3-button w3-blue w3-padding" onclick="clearData()"></input>  <button onclick="showData()" class="w3-button w3-green w3-padding"> SHOW </button>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2"> <textarea id="tResult" style="display:none" class="w3-input w3-border w3-round-large" rows="5" disabled></textarea> </td>
+        </tr>
+        <tr> <td></td> <td> <button style="display:none" class="w3-button w3-red" id="btnCopy" onclick="copyText()"> COPY </button> </td></tr>
+      </table>
+      
+      <p id="lbl" class="w3-panel w3-pale-green w3-bottombar w3-border-green w3-border"></p>
+      </div></center>
+  </body>
+</html>
