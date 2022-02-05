@@ -47,6 +47,7 @@
         var comment = document.getElementById("tComment").value.trim();
         var btnCopy = document.getElementById("btnCopy");
         var tResult = document.getElementById("tResult");
+        var chk = document.getElementById("chk");
 
         if(name.length < 5)
         {
@@ -74,8 +75,19 @@
               {
                 btnCopy.style.display = "block";
                 tResult.style.display = "block";
+                var str = "";
+		
+		if(chk.checked == true)
+		{
+		    str = str + "Publicly display my support";
+		}
+		else
+		{
+		    str = str + "I demand my concerned authorities";
+		}
+                
 
-                var result = "Publicly display my support for #EndCovidVaccineLockdown | " + name + " | " + address + " | " + state + " | " + district + " | " + pincode + " | " + email + " | " + voter + " | " + comment;
+                var result = str + " for #EndCovidVaccineLockdown | " + name + " | " + address + " | " + state + " | " + district + " | " + pincode + " | " + email + " | " + voter + " | " + comment;
                 document.getElementById("tResult").innerHTML = result;
               }
             }
@@ -178,7 +190,7 @@
             <textarea id="tComment" class="w3-input w3-border w3-round-large"></textarea>
             </input>
           </td>
-        </tr>
+        </tr> <tr> <td align="right"> <input type="checkbox" id="chk" name="chk" class="w3-check"> </td><td> <h4> Check if you want to display your support publicly</h4> </td> </tr>
         <tr>
           <td></td>
           <td colspan="2">
